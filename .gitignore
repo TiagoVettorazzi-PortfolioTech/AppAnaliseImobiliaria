@@ -1,0 +1,7 @@
+teste.csv
+analise_consolidacao  copy.ipynb
+frente.ipynb
+appimob/
+venv/
+*.pyc
+__pycache__/
