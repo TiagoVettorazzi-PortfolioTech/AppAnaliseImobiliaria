@@ -151,7 +151,7 @@ st.write(input_data)
 # st.write(f'Inputs:{inputs}')
 
 if st.sidebar.button("Fazer Previsão"):
-    url = "http://localhost:8000/predict"  # ou o endpoint da sua API
+    url = "http://localhost:8010/predict"  # ou o endpoint da sua API
     payload = input_data.to_dict(orient="records")[0]
     payload = {k: (v.item() if hasattr(v, 'item') else v) for k, v in payload.items()}
 
