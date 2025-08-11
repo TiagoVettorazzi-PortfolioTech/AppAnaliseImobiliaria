@@ -9,7 +9,7 @@ from endpoint import app as app_api
 import uvicorn
 
 def run_fastapi():
-    uvicorn.run(app_api, host="0.0.0.0", port=8000)
+    uvicorn.run(app_api, host="0.0.0.0", port=8010)
 
 thread = threading.Thread(target=run_fastapi)
 thread.start() 

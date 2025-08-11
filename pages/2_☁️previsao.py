@@ -145,6 +145,7 @@ st.write(df)
 
 #Input usuário
 input_data = pd.DataFrame([inputs])
+st.write(input_data)
 # st.write(f'numericas:', numericas)
 #st.write(input_data)
 # st.write(f'Inputs:{inputs}')
@@ -212,6 +213,8 @@ def mostrar_estatisticas(df_filtrado):
         st.metric('IDH Longevidade', f"{df_filtrado['idh_longevidade'].mean():.2f}")    
 
 mostrar_estatisticas(df_filtrado)
+
+st.write(df_filtrado)
 
 st.write("## 📍 Mapa de alguns Imóveis no Bairro")
 
