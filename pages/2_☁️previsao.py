@@ -176,18 +176,23 @@ def exibir_mapa_scater(df_filtrado):
         "ScatterplotLayer",
         data=df_filtrado,
         get_position=["longitude", "latitude"],
-        get_color=[255, 0, 0, 160],  # Vermelho semi-transparente
-        get_radius=30,  # Tamanho do ponto
+        get_color=[255, 100, 50, 160],  # Vermelho semi-transparente
+        get_radius=90,  # Tamanho do ponto
     )
 
     view_state = pdk.ViewState(
         latitude=df['latitude'].mean(),
         longitude=df['longitude'].mean(),
-        zoom=13,  # Nível de zoom inicial
+        zoom=12,  # Nível de zoom inicial
         pitch=15,
     )
 
-    st.pydeck_chart(pdk.Deck(layers=[layer], initial_view_state=view_state, map_style="mapbox://styles/mapbox/light-v10"))
+    # st.pydeck_chart(pdk.Deck(layers=[layer], initial_view_state=view_state, map_style="mapbox://styles/mapbox/light-v10"))
+    st.pydeck_chart(pdk.Deck(
+    layers=[layer],
+    initial_view_state=view_state,
+    map_provider="carto", map_style="light"   # pydeck >= 0.8
+))
     
 def mostrar_estatisticas(df_filtrado):
     if df_filtrado.empty:

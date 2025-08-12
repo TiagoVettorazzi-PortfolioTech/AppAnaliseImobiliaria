@@ -70,9 +70,14 @@ def exibir_scater(df):
         latitude=df_filtrado["latitude"].mean(),
         longitude=df_filtrado["longitude"].mean(),
         zoom=12,
-        pitch=0
+        pitch=15
     )
-    st.pydeck_chart(pdk.Deck(layers=[heatmap_layer], initial_view_state=view_state, map_style="mapbox://styles/mapbox/light-v10"))
+    # st.pydeck_chart(pdk.Deck(layers=[heatmap_layer], initial_view_state=view_state, map_style="mapbox://styles/mapbox/light-v10"))
+    st.pydeck_chart(pdk.Deck(
+    layers=[heatmap_layer],
+    initial_view_state=view_state,
+    map_provider="carto", map_style="light"   # pydeck >= 0.8
+))
 
 st.write("## 📍 Mapa de calor por preço Fortaleza")
 st.write('Este mapa representa a distribuição de preços dos imóveis em Fortaleza. As áreas em vermelho são as areas com imóveis mais caros. As áreas amarelas são as áreas com imóveis mais baratos.')
