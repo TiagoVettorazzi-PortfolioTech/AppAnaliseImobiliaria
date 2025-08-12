@@ -24,7 +24,7 @@ st.write(
 
 #--------------------------------------------------------------------------------------------------------------------------
 modelo_treinado_path = 'models/model_kmeans_3.pkl'
-kmeans_path = 'models/model_kmeans_3.pkl'
+kmeans_path = 'models/model_kmeans_2.pkl'
 
 model = joblib.load(modelo_treinado_path)
 kmeans_model = joblib.load(kmeans_path)
@@ -115,9 +115,9 @@ def input_variaveis(numericas):
 
             # st.write( kmeans_model.predict(coords_usuario))
 
-        # elif var == 'distancia_centro':
-        #     centro_fortaleza = (-3.730451, -38.521798)
-        #     inputs[var] = haversine(centro_fortaleza, (lat, lon))
+        elif var == 'distancia_centro':
+            centro_fortaleza = (-3.730451, -38.521798)
+            inputs[var] = haversine(centro_fortaleza, (lat, lon))
     
     return inputs, df_filtrado, numericas, numericas_extra
 
@@ -139,13 +139,13 @@ inputs = ordenar_input(inputs)
 
 
 
-st.write(f'numericas_extra: ', numericas_extra)
-st.write(f'inputs:', inputs)
-st.write(df)
+# st.write(f'numericas_extra: ', numericas_extra)
+# st.write(f'inputs:', inputs)
+# st.write(df)
 
 #Input usuário
 input_data = pd.DataFrame([inputs])
-st.write(input_data)
+# st.write(input_data)
 # st.write(f'numericas:', numericas)
 #st.write(input_data)
 # st.write(f'Inputs:{inputs}')
@@ -214,7 +214,7 @@ def mostrar_estatisticas(df_filtrado):
 
 mostrar_estatisticas(df_filtrado)
 
-st.write(df_filtrado)
+# st.write(df_filtrado)
 
 st.write("## 📍 Mapa de alguns Imóveis no Bairro")
 
